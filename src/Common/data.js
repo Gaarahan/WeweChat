@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     title: 'App归档小组',
-    message: 'Gaara: I want my tears back...'
+    message: 'Gaara: I want my tears back...',
   },
   {
     id: 2,

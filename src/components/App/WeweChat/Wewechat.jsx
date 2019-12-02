@@ -1,6 +1,6 @@
 import React from 'react'
-import ChatArea from '../ChatArea/ChatArea'
-import SideBar from '../SideBar/SideBar'
+import ChatArea from '../../ChatArea/ChatArea'
+import SideBar from '../../SideBar/SideBar'
 import './WeweChat.less'
 
 class WeweChat extends React.Component {

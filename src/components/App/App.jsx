@@ -1,5 +1,5 @@
 import React from 'react';
-import WeweChat from '../WeweChat/Wewechat'
+import WeweChat from './WeweChat/Wewechat'
 import './App.css';
 
 class App extends React.Component {

@@ -1,6 +1,14 @@
 .App {
   height: 100%;
   width: 100%;
+  min-width: 800px;
+  min-height: 500px;
   background-image: url("../../images/bg.jpg");
   background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.App *{
+  box-sizing: border-box;
 }
