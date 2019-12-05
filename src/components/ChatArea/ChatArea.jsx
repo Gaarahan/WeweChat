@@ -9,7 +9,9 @@ class ChatArea extends React.Component{
         <section
             className={'chat-area'}
         >
-          <ChatShower/>
+          <ChatShower
+              chatSession={this.props.chatSession}
+          />
           <ChatSender/>
         </section>
     )

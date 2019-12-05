@@ -1,22 +1,14 @@
 import React from 'react'
 import './ContactList.less'
-import HEAD_CHAT_PIC from '@/assets/vim.png'
 
 class ContactList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      curChatId: 1
-    }
-  }
   render() {
-
+    const {sessions, selectedSessionId} = this.props;
     return (
-        this.props.contactList
-            .map(item => {
+        sessions.map(item => {
               return <SingleChatItem
                   item={item}
-                  isCurrent={item.id === this.state.curChatId}
+                  isCurrent={item.id === selectedSessionId}
                   key={item.id}
               />
             }
@@ -32,7 +24,7 @@ function SingleChatItem(props) {
             'single-chat-item selected' :
             'single-chat-item'
       }>
-        <img src={HEAD_CHAT_PIC} alt="" width={40} height={40}/>
+        <img src={require(`@/assets/headPic/${props.item.img}`)} alt="" width={40} height={40}/>
         <div className={'message-contain'}>
           <span className={'title'}>{props.item.title}</span>
           <span className={'message'}>{props.item.message}</span>

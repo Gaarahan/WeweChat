@@ -4,31 +4,14 @@ import UserInfo from "./UserInfo/UserInfo";
 import './SideBar.less'
 
 class SideBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contactList: []
-    }
-  }
-
-  loadContactList() {
-    return import('../../Common/data.js');
-  }
-
-  componentDidMount() {
-    this.loadContactList().then((res) => {
-      this.setState({
-        contactList: res.default
-      })
-    })
-  }
-
   render() {
     return (
         <section
             className={'sidebar'}
         >
-          <UserInfo/>
+          <UserInfo
+            userInfo={this.props.userInfo}
+          />
           {/* TODO 搜索*/}
           <div className={'search-contain'}>
             <span className={'iconfont icon-sousuo'}/>
@@ -46,7 +29,9 @@ class SideBar extends React.Component {
             </div>
           </div>
           <ContactList
-              contactList={this.state.contactList}
+              contactList={this.props.contactList}
+              sessions={this.props.sessions}
+              selectedSessionId={this.props.selectedSessionId}
           />
         </section>
     )

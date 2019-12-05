@@ -6,15 +6,28 @@ import './WeweChat.less'
 class WeweChat extends React.Component {
   constructor(props) {
     super(props);
+    const {sessions, contactList, userInfo} = require('../../../Common/data.js').default;
     this.state = {
-    }
+      sessions,
+      contactList,
+      userInfo ,
+      selectedSessionId: 1
+    };
   }
 
   render() {
+    const selectedSession = this.state.sessions.find(val => val.id === this.state.selectedSessionId);
     return (
         <div className={'wewe-chat'}>
-          <SideBar/>
-          <ChatArea/>
+          <SideBar
+              sessions={this.state.sessions}
+              userInfo={this.state.userInfo}
+              contactList={this.state.contactList}
+              selectedSessionId={this.state.selectedSessionId}
+          />
+          <ChatArea
+              chatSession={selectedSession}
+          />
         </div>
     )
   }
