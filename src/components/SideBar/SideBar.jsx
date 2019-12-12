@@ -29,6 +29,7 @@ class SideBar extends React.Component {
             </div>
           </div>
           <ContactList
+              onSessionSelect={this.props.onSessionSelect}
               contactList={this.props.contactList}
               sessions={this.props.sessions}
               selectedSessionId={this.props.selectedSessionId}

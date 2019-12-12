@@ -24,12 +24,18 @@ class WeweChat extends React.Component {
               userInfo={this.state.userInfo}
               contactList={this.state.contactList}
               selectedSessionId={this.state.selectedSessionId}
+              onSessionSelect={this.selectSession.bind(this)}
           />
           <ChatArea
               chatSession={selectedSession}
           />
         </div>
     )
+  }
+  selectSession(id) {
+    this.setState({
+      selectedSessionId: id
+    })
   }
 }
 

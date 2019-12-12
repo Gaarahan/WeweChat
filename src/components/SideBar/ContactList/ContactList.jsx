@@ -3,14 +3,19 @@ import './ContactList.less'
 
 class ContactList extends React.Component {
   render() {
-    const {sessions, selectedSessionId} = this.props;
+    const {sessions, selectedSessionId, onSessionSelect: selectSession} = this.props;
     return (
         sessions.map(item => {
-              return <SingleChatItem
-                  item={item}
-                  isCurrent={item.id === selectedSessionId}
-                  key={item.id}
-              />
+              return (
+                  <SingleChatItem
+                      clickHandler={() => {
+                        selectSession(item.id)
+                      }}
+                      item={item}
+                      isCurrent={item.id === selectedSessionId}
+                      key={item.id}
+                  />
+              )
             }
         )
     )
@@ -19,11 +24,14 @@ class ContactList extends React.Component {
 
 function SingleChatItem(props) {
   return  (
-      <div className={
-        props.isCurrent ?
-            'single-chat-item selected' :
-            'single-chat-item'
-      }>
+      <div
+          className={
+            props.isCurrent ?
+                'single-chat-item selected' :
+                'single-chat-item'
+          }
+          onClick={props.clickHandler}
+      >
         <img src={require(`@/assets/headPic/${props.item.img}`)} alt="" width={40} height={40}/>
         <div className={'message-contain'}>
           <span className={'title'}>{props.item.title}</span>
